@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BinVisionAI - Register</title>
+  <script src="https://kit.fontawesome.com/dac310e544.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+
+  <link rel="stylesheet" href="registration.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <!-- <header class="header">
+      <div class="logo">
+        <div class="logo-icon">
+          <img src="images/logo_!.png" alt="logo_img" />
+        </div>
+      </div> -->
+
+  <!-- <nav class="nav"> -->
+  <!-- <a href="#" class="nav-link">HOME</a>
+        <a href="#" class="nav-link">ABOUT US</a>
+        <a href="#" class="nav-link">VISION</a>
+        <a href="#" class="nav-link">CONTACT</a> -->
+
+  <!-- </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        &#9776;
+       
+      </button> -->
+
+  <!-- <div class="header-actions">
+        <button class="search-icon">
+          <img src="images/🦆 icon _magnifying glass_.png" alt="search_img" />
+        </button>
+        <button class="theme-toggle">
+          <img src="images/🦆 icon _sun_.png" alt="theme-toggle_img" />
+        </button>
+        <a href="#" class="btn btn-login">Login</a>
+        <a href="#" class="btn btn-register">Register</a>
+      </div>
+    </header> -->
+
+  <div class="navbar">
+  <div class="navbox">
+    <div class="binvisionAILogoBox">
+      <div class="binvisionAILogo">
+        <img src="BinVisionAI_Logo.png" alt="BinVisionAI" class="BinVisionAILogo">
+      </div>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <!-- Navbar items -->
+    <ul id="navMenusBox">
+      <li><a href="UserLandingPage.html#firstPage">HOME</a></li>
+      <li><a href="UserLandingPage.html#fourthPage">ABOUT US</a></li>
+      <li><a href="UserLandingPage.html#vision-section">VISION</a></li>
+      <li><a href="UserLandingPage.html#seventhPage">CONTACT</a></li>
+    </ul>
+    
+    <div class="symbolBox">
+      <div class="searchButton" id="searchIcon">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <div id="searchBar" style="display:none; align-items:center; gap:10px;">
+        <input type="text" id="searchInput" placeholder="Search..." />
+        <button id="closeSearch">✖</button>
+      </div>
+
+      <div id="themeChangeButton"><i class="fa-solid fa-sun"></i></div>
+    </div>
+
+    <div class="buttonBox">
+      <a href="login.html">
+        <div class="loginButton">Login</div>
+      </a>
+      <a href="registration.html">
+        <div class="registerButton">Register</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Welcome Card -->
+      <section class="card welcome-card">
+        <div class="card-content">
+          <h1 class="welcome-title">Welcome Back!</h1>
+          <p class="welcome-text">
+            To keep connected with us please login with your personal info
+          </p>
+          <a href="login.html"><button class="sign-in-btn" onclick="toggleForm()">SIGN IN</button></a>
+        </div>
+      </section>
+
+      <!-- Register Card -->
+      <section class="card register-card">
+        <div class="register-header">
+          <div class="register-logo">
+            <div class="register-logo-icon">
+              <img src="BinVisionAI_Logo.png" alt="logo_img" />
+            </div>
+          </div>
+          <h2 class="register-title">Register</h2>
+          <p class="register-subtitle">
+            Sign up to begin your journey with BinVisionAI
+          </p>
+        </div>
+
+        <form class="registration-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <span class="input-icon">
+              <i class="fa-solid fa-user"></i>
+            </span>
+            <input type="text" class="form-input" placeholder="Name" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <span class="input-icon"><i class="fa-solid fa-envelope"></i></span>
+              <input type="email" class="form-input" placeholder="Email" required />
+            </div>
+            <div class="form-group">
+              <span class="input-icon"><i class="fa-solid fa-mobile-button"></i></span>
+              <input type="tel" class="form-input" placeholder="Mobile No." required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <span class="input-icon"><i class="fa-solid fa-trash-can"></i></span>
+              <input type="text" class="form-input" placeholder="Bin ID" required />
+            </div>
+
+            <div class="form-group">
+              <span class="input-icon"><i class="fa-solid fa-key"></i></i></span>
+              <input type="password" class="form-input" placeholder="Password" required />
+            </div>
+          </div>
+          <div class="action-row">
+            <button type="button" class="btn-qr">
+              <i class="fa-solid fa-qrcode"></i>
+              Scan QR Code
+            </button>
+
+            <div id="qr-reader" style="width:300px; display:none; margin:auto; margin-top:20px;"></div>
+            <div id="qr-result" style="text-align:center; margin-top:10px; font-weight:bold;"></div>
+
+            <button type="button" class="btn-captcha" onclick="toggleCaptcha(this)">
+              ✅ I'm not a robot
+            </button>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-register-form">Register</button>
+            <button type="reset" class="btn-reset">Reset</button>
+          </div>
+
+          <div class="sign-in-link">
+            Already have an account? <a href="login.html">Sign in</a>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="social-icons">
+          <!-- <img src="res/instagram.png" alt="Instagram">
+        <img src="res/facebook.png" alt="Facebook">
+        <img src="res/X.png" alt="X">
+        <img src="res/LinkedIn.png" alt="LinkedIn"> -->
+
+          <a href="https://www.instagram.com/_hrishi_bondre_45/" target="_blank"><i class="fa-brands fa-instagram"
+              style="color: #00c30a;"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61557395861212" target="_blank"><i
+              class="fa-brands fa-facebook" style="color: #00c30a;"></i></a>
+          <a href="https://twitter.com/HrishiBondre" target="_blank"><i class="fa-brands fa-x-twitter"
+              style="color: #00c30a;"></i></a>
+          <a href="https://www.linkedin.com/in/hrishikesh-bondre-8134902ab/" target="_blank"><i
+              class="fa-brands fa-linkedin" style="color: #00c30a;"></i></a>
+        </div>
+        <p class="copyright">&copy; 2025 BinVisionAI | All rights reserved</p>
+      </div>
+    </footer>
+
+    <script>
+      function toggleCaptcha(element) {
+        element.classList.toggle("checked");
+      }
+
+      function handleSubmit(event) {
+        event.preventDefault();
+        const captcha = document.querySelector(".btn-captcha");
+        if (!captcha.classList.contains("checked")) {
+          alert("Please complete the captcha verification");
+          return;
+        }
+        const formData = new FormData(event.target);
+        console.log("Form submitted with data:", Object.fromEntries(formData));
+        alert("Registration submitted successfully!");
+      }
+
+      function toggleForm() {
+        alert("Sign in functionality would be implemented here");
+      }
+
+      // ✅ Fix: change "search-icon" → "searchButton"
+      const searchBtn = document.querySelector(".searchButton");
+      if (searchBtn) {
+        searchBtn.addEventListener("click", function () {
+          console.log("Search clicked");
+        });
+      }
+
+      document.querySelectorAll(".form-input").forEach((input) => {
+        input.addEventListener("focus", function () {
+          this.parentElement.style.transform = "scale(1.02)";
+        });
+
+        input.addEventListener("blur", function () {
+          this.parentElement.style.transform = "scale(1)";
+        });
+      });
+
+      const navToggle = document.querySelector(".nav-toggle");
+      const navMenu = document.querySelector(".nav");
+      if (navToggle && navMenu) {
+        navToggle.addEventListener("click", () => {
+          navMenu.classList.toggle("active");
+        });
+      }
+
+      // ✅ Theme toggle
+      var icon = document.getElementById("themeChangeButton");
+      if (icon) {
+        icon.onclick = function () {
+          document.body.classList.toggle("light-theme");
+        };
+      }
+ 
+      
+      //search Icon
+      const searchIcon = document.getElementById("searchIcon");
+      const searchBar = document.getElementById("searchBar");
+      const closeSearch = document.getElementById("closeSearch");
+      const searchInput = document.getElementById("searchInput"); // add an input inside searchBar
+
+      // Open search bar
+      searchIcon.onclick = function () {
+        searchBar.style.display = "flex";
+        searchInput.focus();
+      }
+
+      // Close search bar
+      closeSearch.onclick = function () {
+        searchBar.style.display = "none";
+        searchInput.value = "";
+      }
+
+      // When pressing Enter inside the search box
+      searchInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          let query = searchInput.value.trim();
+          if (query) {
+            let found = window.find(query); // native browser search
+            if (!found) {
+              alert("❌ Not found: " + query);
+            }
+          }
+        }
+      });
+
+
+      const hamburger = document.getElementById('hamburger');
+const navbox = document.querySelector('.navbox');
+
+// Toggle menu on hamburger click
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent click from triggering document listener
+    navbox.classList.toggle('active');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navbox.classList.contains('active') && !navbox.contains(e.target)) {
+        navbox.classList.remove('active');
+    }
+});
+
+
+
+    </script>
+
+
+</body>
+
+</html>
