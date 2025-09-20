@@ -946,6 +946,11 @@ body {
   width: 100%; /* stretch full width of parent */
 }
 
+
+.light-theme .aboutUsInfo{
+  color: black;
+}
+
 /* ========== RESPONSIVE FOURTH PAGE BELOW 1300px ========== */
 @media (max-width: 1300px) {
   .fourthPageBox {
