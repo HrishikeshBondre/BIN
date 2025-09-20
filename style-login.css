@@ -303,6 +303,7 @@ nav a:hover{
   margin: 10px 0 25px;
 }
 
+/* Default input styles (dark theme) */
 .input {
   width: 400px;
   height: 50px;
@@ -311,25 +312,40 @@ nav a:hover{
   border: 2px solid #555;
   border-radius: 25px;
   background: var(--primary-color);
-  color: var(--darkgrey-white-color);
+  color: var(--white-black-color); /* Default text color */
   font-weight: 500;
   font-size: 16px;
   transition: all 0.3s;
 }
 
-.input:focus{
+.input:focus {
   outline: none;
   border-color: rgba(0,195,10);
   box-shadow: 0 0 0 2px rgba(0,255,0,0.2);
 }
 
-input:hover{
-  border-color: rgb(0, 163, 8);
-}
-
-input::placeholder{
+/* Placeholder color */
+.input::placeholder {
   color: #888;
 }
+
+/* Light theme override */
+.light-theme .input {
+  color: black; /* text color after typing in light theme */
+  background: var(--login-box-color);
+  border-color: #555;
+}
+
+.light-theme .input:focus {
+  border-color: rgb(0,195,10);
+  box-shadow: 0 0 0 2px rgba(0,255,0,0.2);
+}
+
+/* Optional: adjust placeholder color in light theme */
+.light-theme .input::placeholder {
+  color: #555;
+}
+
 
 .forgot {
   width: 100%;
@@ -560,37 +576,16 @@ footer p {
     }
 }
 
+/* ====== RESPONSIVE STYLING ====== */
+
 /* Mobile portrait (max-width 480px) */
 @media (max-width: 480px) {
-    .login-card {
-        width: 100%;
-        padding: 20px 10px;
-    }
-
-    .login-card h1 {
-        font-size: 24px;
-    }
-
-    .input {
-        height: 40px;
-        font-size: 14px;
-    }
-
-    .button-group {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
-
-    .login-form-btn,
-    .reset-form-btn {
-        width: 100%;
-        font-size: 14px;
-    }
-
+    /* Adjust navbar spacing */
     .navbox {
         margin-left: 10px;
         margin-right: 10px;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     #navMenusBox {
@@ -606,7 +601,89 @@ footer p {
     .buttonBox {
         gap: 10px;
     }
+
+    .binvisionAILogo img.BinVisionAILogo {
+        width: 100px;  /* smaller logo */
+    }
+
+    .binvisionAILogoBox {
+        width: 120px;
+        margin-left: 15px; /* left spacing */
+    }
+
+    /* ==== LOGIN CARD SHRINK ==== */
+    .login-card {
+        width: 90%;             /* reduce width */
+        padding: 15px 10px;     /* reduce padding */
+        border-radius: 20px;    /* slightly smaller corners */
+        height: auto;
+    }
+
+    .card-logo {
+        width: 150px;           /* smaller logo in card */
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .login-card h1 {
+        font-size: 22px;        /* smaller heading */
+    }
+
+    .login-subtitle {
+        font-size: 12px;        /* smaller subtitle */
+        margin: 5px 0 15px;
+    }
+
+    .input {
+        width: 100%;
+        height: 40px;
+        font-size: 14px;        /* smaller input text */
+        padding: 10px 12px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .login-form-btn,
+    .reset-form-btn {
+        width: 100%;
+        font-size: 14px;
+        height: 45px;
+    }
+
+    .forgot a {
+        font-size: 12px;
+        margin-right: 10px;
+    }
+
+    .register-link {
+        font-size: 12px;
+        margin-top: 20px;
+    }
 }
+
+/* Shrink navbar logo on very small screens */
+@media (max-width: 600px) {
+    .binvisionAILogo img.BinVisionAILogo {
+        width: 120px;   /* smaller width */
+        height: auto;   /* maintain aspect ratio */
+
+    }
+
+    .binvisionAILogoBox {
+        width: 140px;   /* adjust container */
+      margin-left: 20px;
+    }
+
+    .navbox {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
 
 /* Hamburger */
 .hamburger {
