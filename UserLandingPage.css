@@ -404,6 +404,70 @@ body {
   }
 }
 
+/* VERY SMALL SCREENS <450px */
+@media (max-width: 450px) {
+  .navbar {
+    height: 100px;
+    padding: 0 15px; /* more left/right space */
+  }
+
+  .navbox {
+    margin: 0;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .binvisionAILogoBox {
+    width: auto;
+    padding-left: 10px;
+  }
+
+  .binvisionAILogo {
+    width: 120px;
+    height: 55px;
+  }
+
+  .BinVisionAILogo {
+    width: 120px;
+  }
+
+  /* center icons (search + theme + hamburger) */
+  .symbolBox {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 18px;
+    height: auto;
+  }
+
+  .hamburger {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+  }
+
+  .hamburger span {
+    background: var(--white-black-color);
+    height: 3px;
+  }
+
+  /* hide login/register buttons on tiny screens (optional) */
+  .buttonBox {
+    display: none;
+  }
+
+  /* hide full nav menu on tiny screens (use hamburger instead) */
+  #navMenusBox {
+    display: none;
+  }
+}
 
 
 
