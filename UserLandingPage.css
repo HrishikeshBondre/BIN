@@ -1,4 +1,3 @@
-/* RESET + VARIABLES */
 * {
   margin: 0;
   padding: 0;
@@ -311,7 +310,6 @@ body {
     font-size: 16px;
   }
 
-  /* Hide the round image on tablets/dark theme */
   .firstPageBackImg {
     opacity: 0;
     transform: scale(0.8);
@@ -319,7 +317,6 @@ body {
     position: absolute;
   }
 
-  /* Hide it completely in light theme too */
   .light-theme .firstPageBackImg {
     display: none;
   }
@@ -328,72 +325,15 @@ body {
 /* RESPONSIVE FIX: REMOVE GAP 1475px–1001px */
 @media (max-width: 1475px) and (min-width: 1001px) {
   .firstPageBackImg {
-    transform: none;   /* ❌ removed translateX */
+    transform: none;
   }
 
   .firstPageContent {
-    justify-content: center;  /* keep tight alignment */
-    gap: 40px;                /* optional small gap */
-    padding: 0;               /* ❌ removed padding */
+    justify-content: center;
+    gap: 40px;
+    padding: 0;
   }
 }
-
-
-/* TABLETS */
-@media (max-width: 1000px) {
-  .firstPageContent {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 95%;
-    margin: 20px auto 0 auto;
-    text-align: center;
-  }
-
-  .firstPageInfo {
-    width: 100%;
-    margin: 20px 0;
-    text-align: center;
-  }
-
-  .firstLine {
-    font-size: 15px;
-    letter-spacing: 5px;
-  }
-
-  .title {
-    font-size: 32px;
-    line-height: 48px;
-  }
-
-  .titleShortInfo {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .contentPageButtons {
-    margin-top: 30px;
-    justify-content: center;
-    gap: 20px;
-    width: auto;
-  }
-
-  .knowMoreButton,
-  .contactButton {
-    width: 180px;
-    height: 55px;
-    font-size: 16px;
-  }
-
-  .firstPageBackImg {
-    opacity: 0;
-    transform: scale(0.8);
-    pointer-events: none;
-    position: absolute;
-  }
-}
-
-
 
 /* MOBILE */
 @media (max-width: 600px) {
@@ -426,8 +366,43 @@ body {
   .firstPageContent {
     margin-top: 15px;
   }
-}
 
+  /* ↓↓↓ shrink logo on small screens ↓↓↓ */
+  .binvisionAILogo {
+    width: 150px;
+    height: 70px;
+  }
+
+  .BinVisionAILogo {
+    width: 150px;
+  }
+
+  /* ↓↓↓ shrink icons and hamburger on small screens ↓↓↓ */
+  .symbolBox {
+    width: 120px;
+    font-size: 16px; /* smaller icons */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #themeChangeButton i,
+  .searchButton i {
+    font-size: 16px;
+  }
+
+  .hamburger {
+    width: 25px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger span {
+    height: 3px;
+    background: var(--white-black-color);
+  }
+}
 
 
 
